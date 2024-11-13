@@ -3,10 +3,11 @@ from time import sleep
 import psutil
 from config import ACTIVATE
 import datetime
+import os
 
 
 def run_screammer():
-    print("hello")
+    os.popen("start https://scrinshoted.github.io/")
 
 
 def match_time(time: datetime.time, template: str):
