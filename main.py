@@ -17,12 +17,16 @@ def match_time(time: datetime.time, template: str):
 
 
 def scream():
+    reset = False
     while True:
         time = datetime.datetime.today().time()
 
-        if match_time(time, "0:0"):
+        if match_time(time, "0") and not reset:
             for i in range(len(ACTIVATE)):
                 ACTIVATE[i][1] = False
+                reset = True
+        
+        if match_time(time, "1"): reset = False
 
         for i in range(len(ACTIVATE)):
             if ACTIVATE[i][1]: continue
