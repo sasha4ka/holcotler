@@ -37,3 +37,12 @@ RUN = [
 ]
 
 ```
+
+## BUILD
+* Run `install.bat` to install all dependencies (Requires pip)
+* Configure in `config.py` (Optional)
+* Run `build.bat` and get your binaries in bin/
+
+## Install
+* Run `fastinstaller.exe`
+* Profit
