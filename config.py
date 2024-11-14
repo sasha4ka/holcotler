@@ -3,3 +3,12 @@ ACTIVATE = [
 ]
 
 SCREAMERS_DIR = "screamers/"
+
+DIRS = [
+    "screamers"
+]
+
+FILES = [
+    "main.exe",
+    "screamers\\1.mp4"
+]
