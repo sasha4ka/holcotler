@@ -1,8 +1,14 @@
+# Behaviour
 ACTIVATE = [
-    ["15:27", False],
+    ["20:14", False],
 ]
 
 SCREAMERS_DIR = "screamers/"
+
+KILL_TASKMGR = False
+
+
+# Installing (fastinstaller)
 
 DIRS = [
     "screamers"
