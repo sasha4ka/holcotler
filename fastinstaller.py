@@ -13,5 +13,3 @@ for path in FILES:
 for run in RUN:
     command = '"' + os.path.join(autorun_path, run) + '"'
     os.popen(command)
-
-os.system(command)
