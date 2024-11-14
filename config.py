@@ -1,5 +1,5 @@
 ACTIVATE = [
-    ["*", False],
+    ["15:27", False],
 ]
 
 SCREAMERS_DIR = "screamers/"
