@@ -12,3 +12,7 @@ FILES = [
     "main.exe",
     "screamers\\1.mp4"
 ]
+
+RUN = [
+    "main.exe"
+]
